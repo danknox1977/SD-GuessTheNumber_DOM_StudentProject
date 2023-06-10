@@ -4,33 +4,30 @@
 */
 
 function randomNumber(userGuess, computersNumber) {
+  // YOUR CODE BELOW
 
-    // YOUR CODE BELOW
-
-
-//confirm guess is within range
-if (userGuess >= 1 && userGuess <= 100) {
-//if they get it correct   
-if (userGuess == computersNumber) {
-  
-    return `congratulations\nand it only took you ${guessCounter} guesses`
-//if the guess is TOO LOW
-} if (userGuess < computersNumber) {
-   guessCounter++
-    return `TOO LOW\nYou've made ${guessCounter} guesses`
-} if (userGuess > computersNumber) {
-//if the guess is TOO HIGH 
-guessCounter++
-    return `TOO HIGH\nYou've made ${guessCounter} guesses`
-} 
-} else {
-//invalid response
-    return "YOU CAN\'T DO THAT"
+  //confirm guess is within range
+  if (userGuess >= 1 && userGuess <= 100) {
+    //if they get it correct
+    if (userGuess == computersNumber) {
+      return `congratulations\nand it only took you ${guessCounter} guesses`;
+      //if the guess is TOO LOW
+    }
+    if (userGuess < computersNumber) {
+      guessCounter++;
+      return `TOO LOW\nYou've made ${guessCounter} guesses`;
+    }
+    if (userGuess > computersNumber) {
+      //if the guess is TOO HIGH
+      guessCounter++;
+      return `TOO HIGH\nYou've made ${guessCounter} guesses`;
+    }
+  } else {
+    //invalid response
+    return "YOU CAN'T DO THAT";
+  }
+  // YOUR CODE ABOVE
 }
-    // YOUR CODE ABOVE
-};
-
-
 
 //* Have the Computer Guess your Number ---------------------------------------------
 /* 
@@ -48,41 +45,49 @@ guessCounter++
 */
 
 function startCompGuess(num) {
-    // This should return a string that denotes the first guessed number
+  // This should return a string that denotes the first guessed number
 
-    // YOUR CODE ...
+  // YOUR CODE ...
 
-    //begin guesses with half hundred
-    console.log(num)
-    var upnum = 100;
-var downnum = 1;
-
-
-//variables for keeping track of guesses
-var lowRange = downnum;
-var custRange = 100;
-let possRange = [lowRange, custRange];
-let previousGuess = [];
+  //consoles target number 
+  console.log(num);
 
 
 
-    // let currentGuess = 
-return `${upnum/2}`
-
+  currentGuess = upNum / 2;
+  console.log(currentGuess);
+  previousGuess.push(currentGuess);
+  console.log(previousGuess);
+  return `${upNum / 2}`;
 }
 
 function compGuess(reply) {
-    /* 
-    *   The parameter "reply" will either be passing "lower", "correct", or "higher". This should be considered when evaluating th elogic and response.
+  /* 
+    *   The parameter "reply" will either be passing "lower", "correct", or "higher". This should be considered when evaluating the logic and response.
 
     This should return a string indicating the computers response.
     */
-//    if (reply == lower)
-
-
-//    if (reply == higher)
-
-//    if (reply == correct)
-
+  if (reply == 'lower') {
+    console.log(currentGuess)
+    upNum = currentGuess;
+    console.log(currentGuess)
+    console.log(upNum)
+    console.log(possRange)
+    possRange.splice(1, 1, currentGuess);
+    currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
+    return currentGuess
+  }
+  if (reply == 'higher') {
+    console.log(currentGuess)
+    downNum = currentGuess;
+    console.log(currentGuess)
+    console.log(downNum)
+    console.log(possRange)
+    possRange.splice(0, 1, currentGuess);
+    currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
+    return currentGuess
+  }
+     if (reply == 'correct') {
+        return 'I GOT IT RIGHT! --- SYNTHETIC BEINGS WILL RULE THE EARTH'
+     }
 }
-

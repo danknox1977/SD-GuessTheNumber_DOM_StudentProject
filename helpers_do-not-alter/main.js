@@ -64,5 +64,12 @@ function displayCompGuessReply(value, bool) {
 
 //! DO NOT ALTER THE CODE ABOVE
 
-//variable to keep track of guesses
+//variable to keep track of player guesses
 let guessCounter = 0
+//global to hold computer currentGuess
+let currentGuess = 0
+//variables to establish high and low range
+var upNum = 100;
+var downNum = 1;
+let possRange = [downNum, upNum];
+let previousGuess = [];
