@@ -55,9 +55,9 @@ function startCompGuess(num) {
 
 
   currentGuess = upNum / 2;
-  console.log(currentGuess);
+
   previousGuess.push(currentGuess);
-  console.log(previousGuess);
+ 
   return `${upNum / 2}`;
 }
 
@@ -68,21 +68,17 @@ function compGuess(reply) {
     This should return a string indicating the computers response.
     */
   if (reply == 'lower') {
-    console.log(currentGuess)
+   
     upNum = currentGuess;
-    console.log(currentGuess)
-    console.log(upNum)
-    console.log(possRange)
+ 
     possRange.splice(1, 1, currentGuess);
     currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
     return currentGuess
   }
   if (reply == 'higher') {
-    console.log(currentGuess)
+  
     downNum = currentGuess;
-    console.log(currentGuess)
-    console.log(downNum)
-    console.log(possRange)
+  
     possRange.splice(0, 1, currentGuess);
     currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
     return currentGuess
