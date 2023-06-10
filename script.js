@@ -8,8 +8,25 @@ function randomNumber(userGuess, computersNumber) {
     // YOUR CODE BELOW
 
 
-
-
+//confirm guess is within range
+if (userGuess >= 1 && userGuess <= 100) {
+//if they get it correct   
+if (userGuess == computersNumber) {
+  
+    return `congratulations\nand it only took you ${guessCounter} guesses`
+//if the guess is TOO LOW
+} if (userGuess < computersNumber) {
+   guessCounter++
+    return `TOO LOW\nYou've made ${guessCounter} guesses`
+} if (userGuess > computersNumber) {
+//if the guess is TOO HIGH 
+guessCounter++
+    return `TOO HIGH\nYou've made ${guessCounter} guesses`
+} 
+} else {
+//invalid response
+    return "YOU CAN\'T DO THAT"
+}
     // YOUR CODE ABOVE
 };
 
@@ -35,6 +52,22 @@ function startCompGuess(num) {
 
     // YOUR CODE ...
 
+    //begin guesses with half hundred
+    console.log(num)
+    var upnum = 100;
+var downnum = 1;
+
+
+//variables for keeping track of guesses
+var lowRange = downnum;
+var custRange = 100;
+let possRange = [lowRange, custRange];
+let previousGuess = [];
+
+
+
+    // let currentGuess = 
+return `${upnum/2}`
 
 }
 
@@ -44,6 +77,12 @@ function compGuess(reply) {
 
     This should return a string indicating the computers response.
     */
+//    if (reply == lower)
+
+
+//    if (reply == higher)
+
+//    if (reply == correct)
 
 }
 

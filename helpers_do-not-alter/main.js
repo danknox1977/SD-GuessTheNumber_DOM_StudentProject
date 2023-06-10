@@ -63,3 +63,6 @@ function displayCompGuessReply(value, bool) {
 }
 
 //! DO NOT ALTER THE CODE ABOVE
+
+//variable to keep track of guesses
+let guessCounter = 0
