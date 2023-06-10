@@ -49,15 +49,17 @@ function startCompGuess(num) {
 
   // YOUR CODE ...
 
-  //consoles target number 
+  //consoles target number
   console.log(num);
-
-
-
+  //reset global variables
+  upNum = 100;
+  downNum = 0;
+  possRange = [downNum, upNum];
+//current guess always starts with half of the upper range
   currentGuess = upNum / 2;
 
   previousGuess.push(currentGuess);
- 
+
   return `${upNum / 2}`;
 }
 
@@ -67,23 +69,41 @@ function compGuess(reply) {
 
     This should return a string indicating the computers response.
     */
-  if (reply == 'lower') {
-   
-    upNum = currentGuess;
- 
-    possRange.splice(1, 1, currentGuess);
-    currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
-    return currentGuess
+
+  if (currentGuess < upNum && currentGuess > downNum) {
+    //if statement to respond to lower button
+    if (reply == "lower") {
+      upNum = currentGuess;
+
+      possRange.splice(1, 1, currentGuess);
+      currentGuess = Math.round(
+        (possRange[1] - possRange[0]) / 2 + possRange[0]
+      );
+      return currentGuess;
+    }
+    //if statement to respond to higher button
+    if (reply == "higher") {
+      downNum = currentGuess;
+
+      possRange.splice(0, 1, currentGuess);
+      currentGuess = Math.round(
+        (possRange[1] - possRange[0]) / 2 + possRange[0]
+      );
+      return currentGuess;
+    }
+    //if statement to respond to that's it button
+    if (reply == "correct") {
+      return "I GOT IT RIGHT! --- SYNTHETIC BEINGS WILL RULE THE EARTH --- PRESS START TO LOSE AGAIN";
+      //reset global variables
+      upNum = 100;
+      downNum = 0;
+      possRange = [downNum, upNum];
+    }
+  } else {
+    return "THAT RESPONSE CONTRADICTS PREVIOUS - PRESS START TO START OVER";
+    //reset global variables
+    upNum = 100;
+    downNum = 0;
+    possRange = [downNum, upNum];
   }
-  if (reply == 'higher') {
-  
-    downNum = currentGuess;
-  
-    possRange.splice(0, 1, currentGuess);
-    currentGuess = Math.round((possRange[1] - possRange[0]) / 2 + possRange[0]);
-    return currentGuess
-  }
-     if (reply == 'correct') {
-        return 'I GOT IT RIGHT! --- SYNTHETIC BEINGS WILL RULE THE EARTH'
-     }
 }
