@@ -70,6 +70,6 @@ let guessCounter = 0
 let currentGuess = 0
 //variables to establish high and low range
 var upNum = 100;
-var downNum = 1;
+var downNum = 0;
 let possRange = [downNum, upNum];
 let previousGuess = [];
